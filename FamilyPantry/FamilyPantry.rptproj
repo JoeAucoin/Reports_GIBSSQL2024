@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <FullPath>Debug</FullPath>
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorLevel>2</ErrorLevel>
+    <OverwriteDatasets>False</OverwriteDatasets>
+    <OverwriteDataSources>False</OverwriteDataSources>
+    <TargetServerVersion>SSRS2016</TargetServerVersion>
+    <Platform>Win32</Platform>
+    <TargetReportFolder>FamilyPantry</TargetReportFolder>
+    <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+    <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
+    <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+    <TargetServerURL>http://brewster/reportserver</TargetServerURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'DebugLocal' ">
+    <FullPath>DebugLocal</FullPath>
+    <OutputPath>bin\DebugLocal</OutputPath>
+    <ErrorLevel>2</ErrorLevel>
+    <OverwriteDatasets>False</OverwriteDatasets>
+    <OverwriteDataSources>False</OverwriteDataSources>
+    <TargetServerVersion>SSRS2016</TargetServerVersion>
+    <Platform>Win32</Platform>
+    <TargetReportFolder>FamilyPantry</TargetReportFolder>
+    <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+    <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
+    <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+    <TargetServerURL>http://localhost/reportserver</TargetServerURL>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <FullPath>Release</FullPath>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorLevel>2</ErrorLevel>
+    <OverwriteDatasets>False</OverwriteDatasets>
+    <OverwriteDataSources>False</OverwriteDataSources>
+    <TargetServerVersion>SSRS2016</TargetServerVersion>
+    <Platform>Win32</Platform>
+    <TargetReportFolder>FamilyPantry</TargetReportFolder>
+    <TargetDatasetFolder>Datasets</TargetDatasetFolder>
+    <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
+    <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
+    <TargetServerURL>http://localhost/reportserver</TargetServerURL>
+  </PropertyGroup>
+  <PropertyGroup>
+    <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD5mYWxzZTwvRW5hYmxlZD4NCiAgPFByb2plY3ROYW1lPjwvUHJvamVjdE5hbWU+DQogIDxBdXhQYXRoPjwvQXV4UGF0aD4NCiAgPExvY2FsUGF0aD48L0xvY2FsUGF0aD4NCiAgPFByb3ZpZGVyPjwvUHJvdmlkZXI+DQo8L1NvdXJjZUNvbnRyb2xJbmZvPg==</State>
+    <DataSources>@(DataSource)</DataSources>
+    <DataSets>@(DataSet)</DataSets>
+    <Reports>@(Report)</Reports>
+  </PropertyGroup>
+  <ItemGroup>
+    <Report Include="AgeByTownGender.rdl" />
+    <Report Include="AgeByTownGenderNEW.rdl" />
+    <Report Include="AllClients.rdl" />
+    <Report Include="Avery5660MailingLabels.rdl" />
+    <Report Include="BagPercentage.rdl" />
+    <Report Include="ClientList.rdl" />
+    <Report Include="ClientTrueFaleQuestionsByVisits.rdl" />
+    <Report Include="ClientTrueFalseQuestions.rdl" />
+    <Report Include="ClientTrueFalseQuestionsDetail.rdl" />
+    <Report Include="DistinctDonorsSummary.rdl" />
+    <Report Include="DistinctDonorsSummaryDetail.rdl" />
+    <Report Include="DonationThankYouLetter.rdl" />
+    <Report Include="DonorHistory.rdl" />
+    <Report Include="DonorListByDrive.rdl" />
+    <Report Include="DonorListByDriveExportMailingAddress.rdl" />
+    <Report Include="DonorListByDriveMailingLabels.rdl" />
+    <Report Include="DonorSummaryGroupByYear.rdl" />
+    <Report Include="DriveDetails.rdl" />
+    <Report Include="Drives.rdl" />
+    <Report Include="EmailExport.rdl" />
+    <Report Include="EmailExportToySignup.rdl" />
+    <Report Include="EmailExportTurkeySignups.rdl" />
+    <Report Include="EthnicityByTown.rdl" />
+    <Report Include="EthnicityMissing.rdl" />
+    <Report Include="Export-CellPhone.rdl" />
+    <Report Include="ExportDonors.rdl" />
+    <Report Include="ExportDonors2021.rdl" />
+    <Report Include="Export_GIBS_DonationTracker.rdl" />
+    <Report Include="Export_GIBS_DonationTrackerDrives.rdl" />
+    <Report Include="Export_GIBS_DonationTrackerLetters.rdl" />
+    <Report Include="Export_GIBS_DonationTrackerLetterTemplate.rdl" />
+    <Report Include="Export_GIBS_DonationTrackerPledge.rdl" />
+    <Report Include="FoodReport.rdl" />
+    <Report Include="FoodReportProductCategory.rdl" />
+    <Report Include="FoodReportSupplier.rdl" />
+    <Report Include="HourlyVisitReport.rdl" />
+    <Report Include="LYBUNT_Detail.rdl" />
+    <Report Include="LYBUNT_Summary.rdl" />
+    <Report Include="MobilePantry.rdl" />
+    <Report Include="PledgeReminder.rdl" />
+    <Report Include="PledgeReport.rdl" />
+    <Report Include="PledgeReportDetail.rdl" />
+    <Report Include="ReportAllDonations.rdl" />
+    <Report Include="ReportAllDonationsExportAddressList.rdl" />
+    <Report Include="ReportDonationSource.rdl" />
+    <Report Include="ReportDonationSourceDetail.rdl" />
+    <Report Include="ReportDoNotMailUsers.rdl" />
+    <Report Include="ReportHeader.rdl" />
+    <Report Include="Reports_Duplicates.rdl" />
+    <Report Include="Reports_DuplicatesDetail.rdl" />
+    <Report Include="Report_Client_Visit_USDA.rdl" />
+    <Report Include="Report_NewDonors.rdl" />
+    <Report Include="sub_LetterheadNames.rdl" />
+    <Report Include="ThanksgivingTurkeySignups.rdl" />
+    <Report Include="ThankYouLetters.rdl" />
+    <Report Include="TotalDonorsSummary.rdl" />
+    <Report Include="TotalDonorsSummaryDetail.rdl" />
+    <Report Include="ToyDayReport.rdl" />
+    <Report Include="TurkeyReport.rdl" />
+    <Report Include="VisitFrequency.rdl" />
+    <Report Include="VisitFrequencyGrouped.rdl" />
+    <Report Include="WealthManagementExport.rdl" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
+</Project>

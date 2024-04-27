@@ -1,0 +1,1832 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="inetDNN_PetersonRealty">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_PetersonRealty</ConnectString>
+      </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>1215b5a8-9ea4-4dd9-a079-4cf2a93e3459</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="GetReservation">
+      <Query>
+        <DataSourceName>inetDNN_PetersonRealty</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ReservationID">
+            <Value>=Parameters!ReservationID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>GIBS_Rentals_Get_Reservation</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ModuleID">
+          <DataField>ModuleID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ReservationID">
+          <DataField>ReservationID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TenantID">
+          <DataField>TenantID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PropertyID">
+          <DataField>PropertyID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DateStart">
+          <DataField>DateStart</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DateEnd">
+          <DataField>DateEnd</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="RentalAmount">
+          <DataField>RentalAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="AgentID">
+          <DataField>AgentID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DepositAmt">
+          <DataField>DepositAmt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DepositPaidDate">
+          <DataField>DepositPaidDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="BalanceAmt">
+          <DataField>BalanceAmt</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BalancePaidDate">
+          <DataField>BalancePaidDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Notes">
+          <DataField>Notes</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CreatedByUserID">
+          <DataField>CreatedByUserID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CreatedDate">
+          <DataField>CreatedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="UpdatedByUserID">
+          <DataField>UpdatedByUserID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="UpdatedDate">
+          <DataField>UpdatedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="GetPropertyDetails">
+      <Query>
+        <DataSourceName>inetDNN_PetersonRealty</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@PropertyID">
+            <Value>=Parameters!PropertyID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>GIBS_Rentals_Get_PropertyDetails</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SecurityDeposit">
+          <DataField>SecurityDeposit</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Commission">
+          <DataField>Commission</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="FullBaths">
+          <DataField>FullBaths</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="HalfBaths">
+          <DataField>HalfBaths</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Phone">
+          <DataField>Phone</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Kings">
+          <DataField>Kings</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Queens">
+          <DataField>Queens</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="SingleBeds">
+          <DataField>SingleBeds</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="DoubleBeds">
+          <DataField>DoubleBeds</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Village">
+          <DataField>Village</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+        <Field Name="Bedrooms">
+          <DataField>Bedrooms</DataField>
+          <rd:UserDefined>true</rd:UserDefined>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="GetTenantByReservationID">
+      <Query>
+        <DataSourceName>inetDNN_PetersonRealty</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ReservationID">
+            <Value>=Parameters!ReservationID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>GIBS_Rentals_Get_TenantByReservationID</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FirstName">
+          <DataField>FirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LastName">
+          <DataField>LastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Email">
+          <DataField>Email</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Street">
+          <DataField>Street</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="City">
+          <DataField>City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Region">
+          <DataField>Region</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PostalCode">
+          <DataField>PostalCode</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Telephone">
+          <DataField>Telephone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Cell">
+          <DataField>Cell</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="GetOwnerByReservationID">
+      <Query>
+        <DataSourceName>inetDNN_PetersonRealty</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@ReservationID">
+            <Value>=Parameters!ReservationID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>GIBS_Rentals_Get_OwnerByReservationID</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="OwnerFirstName">
+          <DataField>OwnerFirstName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerLastName">
+          <DataField>OwnerLastName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerEmail">
+          <DataField>OwnerEmail</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerTelephone">
+          <DataField>OwnerTelephone</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerCell">
+          <DataField>OwnerCell</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerAddress">
+          <DataField>OwnerAddress</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerCity">
+          <DataField>OwnerCity</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerState">
+          <DataField>OwnerState</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OwnerZip">
+          <DataField>OwnerZip</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="PropertyAddress">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>PREMISES TO BE LEASED: </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!Address.Value, "GetPropertyDetails")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, </Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!Village.Value, "GetPropertyDetails")</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, Massachusetts</Value>
+                    <Style>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>Blue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>PropertyAddress</rd:DefaultName>
+            <Top>1.91542in</Top>
+            <Height>0.21181in</Height>
+            <Width>7.26959in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox3">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>* THE SECURITY DEPOSIT IS NOT TO BE CONSIDERED PREPAID RENT, NOR SHALL DAMAGES CLAIMED (IF ANY) BE LIMITED TO THE AMOUNT OF THE SECURITY DEPOSIT.  THE LANDLORD HEREBY NOTIFIES THE TENANT THAT THE LANDLORD OR HIS AGENT WILL SUBMIT TO THE TENANT AN ITEMIZED LIST OF DAMAGES CLAIMED TO HAVE BEEN CAUSED BY THE TENANT AND RETURN THE ENTIRE SECURITY LESS DAMAGES AND OTHER LAWFUL DEDUCTIONS, WITHIN THIRTY (30) DAYS AFTER THE TERMINATION OF THE TENANCY. THE PROPERTY MUST BE LEFT IN THE SAME CONDITION AS UPON ARRIVAL. IF PROPERTY IS LEFT IN AN UNCLEAN CONDITION OR FOOD IS LEFT BEHIND, A DEDUCTION WILL BE MADE FROM THE SECURITY DEPOSIT TO REMEDY THE SITUATION.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox3</rd:DefaultName>
+            <Top>3.25375in</Top>
+            <Height>0.72417in</Height>
+            <Width>7.5in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox4">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The LANDLORD hereby notifies the TENANT that Peterson Realty, Inc. of the address below is authorized to receive notices of violations of law and to accept services of process on behalf of the LANDLORD.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The parties hereto, in consideration of these presents, agree as follows: </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>That no more than </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!Bedrooms.Value, "GetPropertyDetails") * 2</Value>
+                    <MarkupType>HTML</MarkupType>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> persons shall occupy said premises.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>That the TENANT shall be responsible for all damage or breakage except normal wear and tear and unavoidable casualty which may result from occupancy.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>That the TENANT will leave the premises in the same general condition as found upon entry.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>That the TENANT will supply their own bed linens, towels, EXTRA BLANKETS for </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=iif(First(Fields!Kings.Value, "GetPropertyDetails") &gt; 0,First(Fields!Kings.Value, "GetPropertyDetails") + " King, ", "")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=iif(First(Fields!DoubleBeds.Value, "GetPropertyDetails") &gt; 0,First(Fields!DoubleBeds.Value, "GetPropertyDetails") + " Double, ", "")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=iif(First(Fields!Queens.Value, "GetPropertyDetails") &gt; 0,First(Fields!Queens.Value, "GetPropertyDetails") + " Queen, ", "")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=iif(First(Fields!SingleBeds.Value, "GetPropertyDetails") &gt; 0,First(Fields!SingleBeds.Value, "GetPropertyDetails") + " Single", "")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> Bed(s).</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>If the TENANT defaults and/or otherwise fails to comply as regards to any item in this lease, the TENANT agrees to vacate premises upon receipt of proper notice from the LANDLORD and/or upon commencement and final adjudication of proceedings authorized and/or required by applicable laws and regulations of the Commonwealth of Massachusetts.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The TENANT agrees to allow the LANDLORD or his AGENT to view the conditions of the premises, both inside and out, upon four (4) hours notice to the TENANT of a request to do so.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The LANDLORD and the TENANT agree that should the premises be destroyed by fire or other casualty so as to become unfit for human habitation that these presents shall thereby be ended, with refund to the TENANT for any rent unused.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Subject to the conditions of paragraph seven (7) the LANDLORD agrees that should the premises acquire a condition which amounts to a violation of law which may endanger or materially impair the health, safety, or well-being of the TENANT or become unfit for human habitation; upon proper notice to or discovery by the LANDLORD thereof, the rent or a just portion thereof according to the nature and extent of the condition shall be suspended or abated until the condition is remedied, if such a remedy is reasonably possible during the lease term; provided, however, that said condition or violation of law was not caused by the TENANT or others lawfully upon the premises.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The LANDLORD agrees to supply fixtures and household furnishings, equipment or other personal property only as represented at the time of the initial showing and when the initial deposit was made.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The LANDLORD and the TENANT state that the rental of these premises is for a vacation or recreational purpose as expressed in Massachusetts General Laws C. 186 ISB (9).</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>The Landlord agrees to pay a Broker’s Fee of </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=CDbl(First(Fields!Commission.Value, "GetPropertyDetails"))</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>0%</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> percent of the total rent to Thomas H. Peterson Realty, Inc. upon receipt of the initial rental payment for this lease and to pay a Broker’s fee of </Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=CDbl(First(Fields!Commission.Value, "GetPropertyDetails"))</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>0%</Format>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> percent to Peterson Realty, Inc. of any subsequent rentals to the TENANT.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>In the event of subsequent sale of the premises to said TENANT at any future date, the LANDLORD agrees to pay a Broker’s fee to Peterson Realty, Inc., amount of fee to be agreed upon by the BROKER and the SELLER.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>NO ANIMALS SHALL BE KEPT IN OR ON THE LEASED PREMISES WITHOUT THE CONSENT OF THE LANDLORD.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <ListStyle>Numbered</ListStyle>
+                <ListLevel>1</ListLevel>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>IN WITNESS WHEREOF:  The parties hereto set their seals on the day and year above written.</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve">
+</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox4</rd:DefaultName>
+            <Top>3.9675in</Top>
+            <Height>4.76041in</Height>
+            <Width>7.5in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox11">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>BY THE LANDLORD</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerFirstName.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerLastName.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerAddress.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerCity.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerState.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!OwnerZip.Value, "GetOwnerByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox11</rd:DefaultName>
+            <Top>0.89458in</Top>
+            <Left>0.47792in</Left>
+            <Height>0.875in</Height>
+            <Width>2.27083in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="Image1">
+            <Source>Embedded</Source>
+            <Value>PetersonRealty120</Value>
+            <Top>0.52653in</Top>
+            <Left>2.81819in</Left>
+            <Height>1.25in</Height>
+            <Width>1.76042in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+          <Textbox Name="Textbox12">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>BY THE TENANT</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!FirstName.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!LastName.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Street.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!City.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>, </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!Region.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!PostalCode.Value, "GetTenantByReservationID")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox12</rd:DefaultName>
+            <Top>0.89458in</Top>
+            <Left>4.8425in</Left>
+            <Height>0.875in</Height>
+            <Width>2.55208in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox13">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>This lease shall begin at 2:00 PM on </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!DateStart.Value, "GetReservation")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <Format>MM/dd/yyyy</Format>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> and end at 10:00 A.M. on </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Label>DateEnd</Label>
+                    <Value>=First(Fields!DateEnd.Value, "GetReservation")</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <Format>MM/dd/yyyy</Format>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox13</rd:DefaultName>
+            <Top>2.2175in</Top>
+            <Left>0.01958in</Left>
+            <Height>0.17708in</Height>
+            <Width>7.375in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox14">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>THIS IS A LEGALLY BINDING CONTRACT, IF NOT UNDERSTOOD SEEK COMPETENT ADVICE</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>LEASE, made </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Label>Date</Label>
+                    <Value>=FormatDateTime(Today(), DateFormat.ShortDate)</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox14</rd:DefaultName>
+            <Top>0.08208in</Top>
+            <Left>0.32167in</Left>
+            <Height>0.36458in</Height>
+            <Width>6.94792in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>For such term the TENANT agrees to pay</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.41542in</Top>
+            <Left>1.04042in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.20833in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox16">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Deposit upon signing of lease</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.61111in</Top>
+            <Left>1.04042in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.20833in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Balance due on occupancy</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.80681in</Top>
+            <Left>1.04042in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.20833in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox18">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>TENANT further agrees to pay</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>3.0025in</Top>
+            <Left>1.04042in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.20833in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox19">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!RentalAmount.Value, "GetReservation")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>'$'#,0;('$'#,0)</Format>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.41667in</Top>
+            <Left>3.26562in</Left>
+            <Height>0.18181in</Height>
+            <Width>0.60156in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!DepositAmt.Value, "GetReservation")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>'$'#,0;('$'#,0)</Format>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.61111in</Top>
+            <Left>3.26562in</Left>
+            <Height>0.18181in</Height>
+            <Width>0.60156in</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox21">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!RentalAmount.Value, "GetReservation") - First(Fields!DepositAmt.Value, "GetReservation")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>'$'#,0;('$'#,0)</Format>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.80681in</Top>
+            <Left>3.26562in</Left>
+            <Height>0.18181in</Height>
+            <Width>0.60156in</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox22">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>$</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>'$'#,0;('$'#,0)</Format>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!SecurityDeposit.Value, "GetPropertyDetails")</Value>
+                    <Style>
+                      <FontSize>8pt</FontSize>
+                      <Format>'$'#,0;('$'#,0)</Format>
+                      <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>3.0025in</Top>
+            <Left>3.26562in</Left>
+            <Height>0.18181in</Height>
+            <Width>0.60156in</Width>
+            <ZIndex>15</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox23">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>as follows:</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.41667in</Top>
+            <Left>4.01302in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.19271in</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox24">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>with</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.61111in</Top>
+            <Left>4.01302in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.19271in</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox25">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>and</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.80681in</Top>
+            <Left>4.01302in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.19271in</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox26">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>as a security deposit </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>*</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox15</rd:DefaultName>
+            <Top>2.98861in</Top>
+            <Left>4.01302in</Left>
+            <Height>0.18181in</Height>
+            <Width>2.19271in</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>LANDLORD__________________________________    TENANT_________________________________     BROKER________________________________</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>7pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>8.79042in</Top>
+            <Left>0.14458in</Left>
+            <Height>0.1875in</Height>
+            <Width>7.25in</Width>
+            <ZIndex>20</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>THOMAS H. PETERSON REALTY, INC.</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>255 Main Street - Box 324
+West Harwich, Massachusetts 02671-0324</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>(508) 432-1220  /  FAX - (508) 430-1234</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>#000000</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>9.04736in</Top>
+            <Left>0.14458in</Left>
+            <Height>0.67139in</Height>
+            <Width>3.41667in</Width>
+            <ZIndex>21</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox5">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Directions to Peterson Real Estate to pick up Key to rental property:</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Normal</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>FOLLOW RT. 6 TO EXIT #9A, GO RIGHT ON RT. 134 TO THE 3RD LIGHT, GO LEFT, PROCEED TO NEXT LIGHT.  FOLLOW RT. 28 EAST TO #255 (1 MILE +/-) TO PETERSON REALTY, ACROSS FROM </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>HOLTY TRINITY CHURCH</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>Red</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox5</rd:DefaultName>
+            <Top>9.04736in</Top>
+            <Left>3.56125in</Left>
+            <Height>0.82764in</Height>
+            <Width>3.83333in</Width>
+            <ZIndex>22</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>10.02083in</Height>
+        <Style />
+      </Body>
+      <Width>7.5in</Width>
+      <Page>
+        <LeftMargin>0.5in</LeftMargin>
+        <RightMargin>0.5in</RightMargin>
+        <TopMargin>0.25in</TopMargin>
+        <BottomMargin>0.25in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="ReservationID">
+      <DataType>Integer</DataType>
+      <Prompt>Reservation ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="PropertyID">
+      <DataType>Integer</DataType>
+      <Prompt>Property ID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>2</NumberOfColumns>
+      <NumberOfRows>1</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>ReservationID</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>PropertyID</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="PetersonRealty120">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>e32d13c4-bce6-4d73-b8f3-61c618924c2d</rd:ReportID>
+</Report>

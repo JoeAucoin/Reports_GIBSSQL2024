@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Trustees
+</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Rosemary O’Neill, </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Chairperson</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+Norman Clarke</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Paul Covell
+Nancy Diehl DiGiovanni
+Richard Gomes</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Shirley A. Gomes
+Mary Rose Griffin 
+Richard A. Hamlin
+Joseph McParland
+Peter Moynagh
+John OBrien</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>John Our</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>James Peterson
+Thomas H. Peterson, Jr.
+Anne Watson</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Daniel Wolf</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+
+Directors
+</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Matthew Kelley, </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>President</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+Antigone London, V</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>ice President</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+Melissa Masi, </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Secretary</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>
+John DeVito, </Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Treasurer</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Terri Barron</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Lorraine Cowhey</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cesar Alcantara</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Mary Kate Gallagher</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Craig Morong
+Patricia Nadle</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Matt Pitta</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Nancy Poor</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Emma Rose</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Richard Roy
+Ralph Smith</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>8pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>2in</Top>
+        <Left>0.01958in</Left>
+        <Height>5.62375in</Height>
+        <Width>1.89583in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>133 Queen Anne Road
+Harwich, MA 02645
+www.thefamilypantry.com
+508-432-6519</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Left>0.01958in</Left>
+        <Height>0.70597in</Height>
+        <Width>1.89583in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Christine H. Menard
+</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>Executive Director</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve">
+</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>cmenard@thefamilypantry.com</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontSize>9pt</FontSize>
+                  <FontWeight>Normal</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>1.25917in</Top>
+        <Left>0.01958in</Left>
+        <Height>0.58806in</Height>
+        <Width>1.89583in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Image Name="Social">
+        <Source>Embedded</Source>
+        <Value>Social</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>0.73375in</Top>
+        <Left>0.01958in</Left>
+        <Height>0.36458in</Height>
+        <Width>0.97917in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+    </ReportItems>
+    <Height>7.62375in</Height>
+    <Style />
+  </Body>
+  <Width>1.91542in</Width>
+  <Page>
+    <LeftMargin>1in</LeftMargin>
+    <RightMargin>1in</RightMargin>
+    <TopMargin>1in</TopMargin>
+    <BottomMargin>1in</BottomMargin>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <EmbeddedImages>
+    <EmbeddedImage Name="Social">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>c379914f-b2cd-49d3-a03a-94a57451e042</rd:ReportID>
+</Report>
