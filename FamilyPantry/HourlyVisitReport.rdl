@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.6.33829.357</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.6.33829.357</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2024-05-23T17:10:35.7196857Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="inetDNN_FamilyPantry">
@@ -27,12 +38,21 @@
             <rd:UserDefined>true</rd:UserDefined>
           </QueryParameter>
         </QueryParameters>
-        <CommandText> if(@ServiceLocation='0' or @ServiceLocation is null)
+        <CommandText>declare @current_utc_offset int
+IF  ServerProperty('EngineEdition') &gt;= 5
+Begin
+set @current_utc_offset = (select  convert(int, left(current_utc_offset,3)) AS current_utc_offset from sys.time_zone_info Where Name = 'US Eastern Standard Time')
+End
+
+
+ if(@ServiceLocation='0' or @ServiceLocation is null)
 begin
 	set @ServiceLocation=null;
 end
 
-SELECT dateadd(hour, datediff(hour, 0, [CreatedOnDate]), 0) as TimeStampHour, Count(*) AS ClientsServed
+SELECT  dateadd(hour, @current_utc_offset, dateadd(hour, datediff(hour, 0, [CreatedOnDate]), 0)) as TimeStampHour
+
+, Count(*) AS ClientsServed
 FROM  [GIBS_FBClientsVisits]
 
 

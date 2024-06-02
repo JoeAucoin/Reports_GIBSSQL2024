@@ -9,24 +9,23 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.6.33829.357</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-05-14T13:25:16.7491791Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-05-14T13:55:36.4804106Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="inetDNN_FamilyPantry">
+    <DataSource Name="inetDNN_SandwichPantry">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_FamilyPantry</ConnectString>
-        <Prompt>Specify a user name and password for data source inetDNN_FamilyPantry:</Prompt>
+        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_SandwichPantry</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
-      <rd:DataSourceID>5c1bb224-dd0c-447c-8592-9be8dccf7d33</rd:DataSourceID>
+      <rd:DataSourceID>f3468f0c-ff9a-4050-8119-0ec1834e8359</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="GIBS_FBReports_Client_BagPercentage">
+    <DataSet Name="GIBS_FBReports_SSRS_ClientTrueFalseQuestionsDetail">
       <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
+        <DataSourceName>inetDNN_SandwichPantry</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
             <Value>=Parameters!StartDate.Value</Value>
@@ -34,50 +33,21 @@
           <QueryParameter Name="@EndDate">
             <Value>=Parameters!EndDate.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@PortalID">
-            <Value>=Parameters!PortalID.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@ServiceLocation">
-            <Value>=Parameters!ServiceLocation.Value</Value>
-            <rd:UserDefined>true</rd:UserDefined>
-          </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>GIBS_FBReports_Client_BagPercentage</CommandText>
+        <CommandText>GIBS_FBReports_SSRS_ClientTrueFalseQuestionsDetail</CommandText>
       </Query>
       <Fields>
-        <Field Name="BagCount">
-          <DataField>BagCount</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="VisitNumBags">
-          <DataField>VisitNumBags</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="ClientsServed">
-          <DataField>ClientsServed</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
-    <DataSet Name="ServiceLocations">
-      <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
-        <CommandText>SELECT        '0' AS Value, 'All Locations' AS Text
-UNION ALL
-SELECT        'Pantry' AS Value, 'This Location' AS Text
-UNION ALL
-SELECT        Value, Text
-FROM            Lists
-WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Value">
-          <DataField>Value</DataField>
+        <Field Name="TfQuestion">
+          <DataField>TfQuestion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Text">
-          <DataField>Text</DataField>
+        <Field Name="TfAnswer">
+          <DataField>TfAnswer</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="Answer">
+          <DataField>Answer</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
@@ -87,20 +57,20 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
     <ReportSection>
       <Body>
         <ReportItems>
-          <Tablix Name="Tablix2">
+          <Tablix Name="Tablix3">
             <TablixCorner>
               <TablixCornerRows>
                 <TablixCornerRow>
                   <TablixCornerCell>
                     <CellContents>
-                      <Textbox Name="Textbox31">
+                      <Textbox Name="Textbox26">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Bag Count</Value>
+                                <Value>Question</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -111,7 +81,41 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox31</rd:DefaultName>
+                        <rd:DefaultName>Textbox26</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>LightGrey</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixCornerCell>
+                  <TablixCornerCell>
+                    <CellContents>
+                      <Textbox Name="Textbox27">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Answer</Value>
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style>
+                              <TextAlign>Center</TextAlign>
+                            </Style>
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox27</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -131,13 +135,10 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.85417in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>2.08681in</Width>
-                </TablixColumn>
-                <TablixColumn>
                   <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.88542in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -146,80 +147,16 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="ClientsServed">
+                        <Textbox Name="TfAnswer">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!ClientsServed.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>ClientsServed</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="VisitNumBags1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!VisitNumBags.Value)</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>VisitNumBags1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox8">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!VisitNumBags.Value /Sum(Fields!VisitNumBags.Value, "GIBS_FBReports_Client_BagPercentage")</Value>
+                                  <Value>=Count(Fields!TfAnswer.Value)</Value>
                                   <Style>
-                                    <Format>0.00%</Format>
+                                    <Format>#,0;(#,0)</Format>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -228,7 +165,39 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox8</rd:DefaultName>
+                          <rd:DefaultName>TfAnswer</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox30">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=FormatPercent(Count(Fields!Answer.Value,"Answer")/Count(Fields!Answer.Value,"RowGroup"),2)</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox30</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -249,15 +218,17 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox4">
+                        <Textbox Name="TfAnswer1">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Sum(Fields!ClientsServed.Value)</Value>
-                                  <Style />
+                                  <Value>=Count(Fields!TfAnswer.Value)</Value>
+                                  <Style>
+                                    <Format>#,0;(#,0)</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -265,7 +236,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <rd:DefaultName>TfAnswer1</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -281,39 +252,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox11">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!VisitNumBags.Value)</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox11</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox14">
+                        <Textbox Name="Textbox38">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -324,10 +263,12 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox14</rd:DefaultName>
+                          <rd:DefaultName>Textbox38</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -348,17 +289,22 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
             <TablixColumnHierarchy>
               <TablixMembers>
                 <TablixMember>
+                  <Group Name="ColumnGroup">
+                    <GroupExpressions>
+                      <GroupExpression />
+                    </GroupExpressions>
+                  </Group>
                   <TablixHeader>
                     <Size>0.25in</Size>
                     <CellContents>
-                      <Textbox Name="Textbox2">
+                      <Textbox Name="Textbox24">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Distinct Clients Served</Value>
+                                <Value>Count</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -369,7 +315,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                             </Style>
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>Textbox2</rd:DefaultName>
+                        <rd:DefaultName>Textbox24</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -385,11 +331,6 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                   </TablixHeader>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="ColumnGroup">
-                    <GroupExpressions>
-                      <GroupExpression />
-                    </GroupExpressions>
-                  </Group>
                   <TablixHeader>
                     <Size>0.25in</Size>
                     <CellContents>
@@ -400,7 +341,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>Total Bags Served</Value>
+                                <Value>Percent</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -426,78 +367,37 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                     </CellContents>
                   </TablixHeader>
                 </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>0.25in</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox7">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Percent</Value>
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox7</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                </TablixMember>
               </TablixMembers>
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="BagCount">
+                  <Group Name="RowGroup">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!BagCount.Value</GroupExpression>
+                      <GroupExpression>=Fields!TfQuestion.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!BagCount.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
-                    <Size>1.18056in</Size>
+                    <Size>1.96875in</Size>
                     <CellContents>
-                      <Textbox Name="BagCount3">
+                      <Textbox Name="TfQuestion">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!BagCount.Value</Value>
-                                <Style />
+                                <Value>=Fields!TfQuestion.Value</Value>
+                                <Style>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>BagCount3</rd:DefaultName>
+                        <rd:DefaultName>TfQuestion</rd:DefaultName>
                         <Style>
                           <Border>
                             <Color>LightGrey</Color>
@@ -511,78 +411,113 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                       </Textbox>
                     </CellContents>
                   </TablixHeader>
-                </TablixMember>
-                <TablixMember>
-                  <TablixHeader>
-                    <Size>1.18056in</Size>
-                    <CellContents>
-                      <Textbox Name="Textbox9">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>Total</Value>
-                                <Style />
-                              </TextRun>
-                            </TextRuns>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="Answer">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!Answer.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!Answer.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>1in</Size>
+                        <CellContents>
+                          <Textbox Name="Answer">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!Answer.Value</Value>
+                                    <Style />
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Answer</rd:DefaultName>
                             <Style>
-                              <TextAlign>Right</TextAlign>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
                             </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Textbox9</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>Solid</Style>
-                          </Border>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
-                  <KeepWithGroup>Before</KeepWithGroup>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>1in</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox36">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value />
+                                    <Style />
+                                  </TextRun>
+                                </TextRuns>
+                                <Style>
+                                  <TextAlign>Center</TextAlign>
+                                </Style>
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Textbox36</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>LightGrey</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>GIBS_FBReports_Client_BagPercentage</DataSetName>
-            <Top>2.24875in</Top>
-            <Left>0.2175in</Left>
+            <DataSetName>GIBS_FBReports_SSRS_ClientTrueFalseQuestionsDetail</DataSetName>
+            <Top>2.29042in</Top>
+            <Left>0.75in</Left>
             <Height>0.75in</Height>
-            <Width>6.12154in</Width>
+            <Width>4.85417in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Subreport Name="Header">
-            <ReportName>ReportHeader</ReportName>
-            <Top>0.125in</Top>
-            <Left>0.875in</Left>
-            <Height>1.17931in</Height>
-            <Width>4.78125in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Subreport>
-          <Textbox Name="Textbox3">
+          <Textbox Name="Textbox18">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
             <Paragraphs>
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>= Parameters!ServiceLocation.Label &amp; " Bag Percentage Report: " &amp; FORMAT(Parameters!StartDate.Value, "MM/dd/yyyy") &amp; " to " &amp; FORMAT(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
+                    <Value>="Client True/False Questions Report" &amp; Environment.Newline &amp; "for Clients with a Visit Between " &amp; Environment.Newline &amp; FORMAT(Parameters!StartDate.Value, "MM/dd/yyyy") &amp; " &amp; " &amp; FORMAT(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
                     <Style>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                     </Style>
                   </TextRun>
@@ -592,12 +527,12 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                 </Style>
               </Paragraph>
             </Paragraphs>
-            <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>1.74875in</Top>
-            <Left>0.405in</Left>
-            <Height>0.25in</Height>
-            <Width>5.77083in</Width>
-            <ZIndex>2</ZIndex>
+            <rd:DefaultName>Textbox18</rd:DefaultName>
+            <Top>1.45312in</Top>
+            <Left>0.51104in</Left>
+            <Height>0.63417in</Height>
+            <Width>5.47792in</Width>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -608,14 +543,26 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Subreport Name="Subreport1">
+            <ReportName>ReportHeader</ReportName>
+            <Left>0.51104in</Left>
+            <Height>1.22917in</Height>
+            <Width>5.47792in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
         </ReportItems>
-        <Height>2.99875in</Height>
+        <Height>3.04042in</Height>
         <Style />
       </Body>
-      <Width>6.71404in</Width>
+      <Width>6.5in</Width>
       <Page>
         <PageFooter>
-          <Height>0.875in</Height>
+          <Height>0.55209in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -626,7 +573,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="(BagPercentage) Report Generated " &amp; Globals!ExecutionTime</Value>
+                      <Value>="(ClientTrueFalseQuestionsDetail) Report Generated " &amp; Globals!ExecutionTime</Value>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -639,8 +586,8 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.14583in</Top>
-              <Left>0.875in</Left>
+              <Top>0.19791in</Top>
+              <Left>0.85938in</Left>
               <Height>0.35417in</Height>
               <Width>4.78125in</Width>
               <Style>
@@ -660,10 +607,10 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
             </Border>
           </Style>
         </PageFooter>
-        <LeftMargin>0.5in</LeftMargin>
-        <RightMargin>0.5in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>0.25in</TopMargin>
+        <BottomMargin>0.25in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -673,7 +620,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateAdd(DateInterval.Month,-1,Today())</Value>
+          <Value>=DateAdd("m",-12,Today())</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
@@ -687,37 +634,11 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
       </DefaultValue>
       <Prompt>End Date</Prompt>
     </ReportParameter>
-    <ReportParameter Name="PortalID">
-      <DataType>Integer</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>0</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>PortalID</Prompt>
-      <Hidden>true</Hidden>
-    </ReportParameter>
-    <ReportParameter Name="ServiceLocation">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>0</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Service Location</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>ServiceLocations</DataSetName>
-          <ValueField>Value</ValueField>
-          <LabelField>Text</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>2</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>1</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
@@ -729,19 +650,9 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
           <RowIndex>0</RowIndex>
           <ParameterName>EndDate</ParameterName>
         </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>PortalID</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>ServiceLocation</ParameterName>
-        </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>28234da5-85ac-4139-8c41-4830e04397a0</rd:ReportID>
+  <rd:ReportID>e625fa64-036b-4ed3-b4b3-5526a3ff4019</rd:ReportID>
 </Report>

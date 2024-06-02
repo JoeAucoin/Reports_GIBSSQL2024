@@ -9,15 +9,14 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.6.33829.357</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-05-14T13:25:16.7491791Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-05-14T13:55:17.3701689Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="inetDNN_FamilyPantry">
+    <DataSource Name="inetDNN_SandwichPantry">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_FamilyPantry</ConnectString>
-        <Prompt>Specify a user name and password for data source inetDNN_FamilyPantry:</Prompt>
+        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_SandwichPantry</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>5c1bb224-dd0c-447c-8592-9be8dccf7d33</rd:DataSourceID>
@@ -26,7 +25,7 @@
   <DataSets>
     <DataSet Name="GIBS_FBReports_Client_BagPercentage">
       <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
+        <DataSourceName>inetDNN_SandwichPantry</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
             <Value>=Parameters!StartDate.Value</Value>
@@ -62,10 +61,10 @@
     </DataSet>
     <DataSet Name="ServiceLocations">
       <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
-        <CommandText>SELECT        '0' AS Value, 'All Locations' AS Text
+        <DataSourceName>inetDNN_SandwichPantry</DataSourceName>
+        <CommandText>SELECT        '0' AS Value, 'All Visits' AS Text
 UNION ALL
-SELECT        'Pantry' AS Value, 'This Location' AS Text
+SELECT        'Pantry' AS Value, 'Regular Visits' AS Text
 UNION ALL
 SELECT        Value, Text
 FROM            Lists
@@ -561,19 +560,6 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
               </Border>
             </Style>
           </Tablix>
-          <Subreport Name="Header">
-            <ReportName>ReportHeader</ReportName>
-            <Top>0.125in</Top>
-            <Left>0.875in</Left>
-            <Height>1.17931in</Height>
-            <Width>4.78125in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Subreport>
           <Textbox Name="Textbox3">
             <CanGrow>true</CanGrow>
             <KeepTogether>true</KeepTogether>
@@ -597,7 +583,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
             <Left>0.405in</Left>
             <Height>0.25in</Height>
             <Width>5.77083in</Width>
-            <ZIndex>2</ZIndex>
+            <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -608,8 +594,20 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Subreport Name="Subreport1">
+            <ReportName>ReportHeader</ReportName>
+            <Left>1.14458in</Left>
+            <Height>1.125in</Height>
+            <Width>4.38667in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
         </ReportItems>
-        <Height>2.99875in</Height>
+        <Height>3.9675in</Height>
         <Style />
       </Body>
       <Width>6.71404in</Width>
@@ -673,7 +671,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateAdd(DateInterval.Month,-1,Today())</Value>
+          <Value>=dateadd("m",-1,dateserial(year(Today),month(Today),1))</Value>
         </Values>
       </DefaultValue>
       <Prompt>Start Date</Prompt>
@@ -682,7 +680,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=Today()</Value>
+          <Value>=dateadd("m",0,dateserial(year(Today),month(Today),0))</Value>
         </Values>
       </DefaultValue>
       <Prompt>End Date</Prompt>
@@ -704,7 +702,7 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Service Location</Prompt>
+      <Prompt>Filter</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>ServiceLocations</DataSetName>

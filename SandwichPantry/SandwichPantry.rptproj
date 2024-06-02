@@ -49,8 +49,15 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
+    <Report Include="AgeByTownGender.rdl" />
+    <Report Include="BagPercentage.rdl" />
     <Report Include="ClientList.rdl" />
-    <Report Include="ReporHeader.rdl" />
+    <Report Include="ClientTrueFalseQuestionsDetail.rdl" />
+    <Report Include="Dashboard_Summary.rdl" />
+    <Report Include="NewClientsReport.rdl" />
+    <Report Include="ReportHeader.rdl" />
+    <Report Include="Report_Client_Visit_USDA.rdl" />
+    <Report Include="VisitFrequencyGrouped.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
