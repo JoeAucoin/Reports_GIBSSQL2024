@@ -1923,7 +1923,7 @@ SELECT  [LocationID] AS Value
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>City</Prompt>
+      <Prompt>Town</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>Towns</DataSetName>
@@ -1939,7 +1939,7 @@ SELECT  [LocationID] AS Value
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>LocationCode</Prompt>
+      <Prompt>Location Code</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>LocationCode</DataSetName>
