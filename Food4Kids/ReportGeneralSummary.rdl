@@ -184,7 +184,7 @@ SELECT  DISTINCT [City] AS Value
     <DataSet Name="Locations">
       <Query>
         <DataSourceName>DataSourceProduction</DataSourceName>
-        <CommandText>SELECT        '0' AS Value, '-All Locations' AS Text
+        <CommandText>SELECT        '0' AS Value, ' -All Locations' AS Text
 UNION ALL
 SELECT  [LocationID] AS Value
       ,[Location] AS Text
