@@ -94,10 +94,15 @@
     <Report Include="PledgeReportDetail.rdl" />
     <Report Include="ReportAllDonations.rdl" />
     <Report Include="ReportAllDonationsExportAddressList.rdl" />
+    <Report Include="ReportChildUnderAge.rdl" />
+    <Report Include="ReportClientVisitDetails.rdl" />
+    <Report Include="ReportDistinctClients.rdl" />
     <Report Include="ReportDonationSource.rdl" />
     <Report Include="ReportDonationSourceDetail.rdl" />
     <Report Include="ReportDoNotMailUsers.rdl" />
     <Report Include="ReportHeader.rdl" />
+    <Report Include="ReportNewClients.rdl" />
+    <Report Include="ReportNewClientsSummary.rdl" />
     <Report Include="Reports_Duplicates.rdl" />
     <Report Include="Reports_DuplicatesDetail.rdl" />
     <Report Include="Report_Client_Visit_USDA.rdl" />
@@ -105,8 +110,10 @@
     <Report Include="sub_LetterheadNames.rdl" />
     <Report Include="ThanksgivingTurkeySignups.rdl" />
     <Report Include="ThankYouLetters.rdl" />
+    <Report Include="TimeTrackerSummary.rdl" />
     <Report Include="TotalDonorsSummary.rdl" />
     <Report Include="TotalDonorsSummaryDetail.rdl" />
+    <Report Include="ToyDayBikeReport.rdl" />
     <Report Include="ToyDayReport.rdl" />
     <Report Include="TurkeyReport.rdl" />
     <Report Include="VisitFrequency.rdl" />

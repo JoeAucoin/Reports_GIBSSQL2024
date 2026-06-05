@@ -7,17 +7,17 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.12.35514.174</am:Version>
+      <am:Version>17.14.36908.2</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-12-07T12:58:37.4835308Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-09T19:45:14.4744820Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="inetDNN_FamilyPantry">
+    <DataSource Name="inetDNN_OFC">
       <ConnectionProperties>
         <DataProvider>SQL</DataProvider>
-        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_FamilyPantry</ConnectString>
+        <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_OFC</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>2a791f2a-79b3-4650-a6a3-97bf3f62dbfa</rd:DataSourceID>
@@ -26,7 +26,7 @@
   <DataSets>
     <DataSet Name="DataSet1">
       <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
+        <DataSourceName>inetDNN_OFC</DataSourceName>
         <QueryParameters>
           <QueryParameter Name="@StartDate">
             <Value>=Parameters!StartDate.Value</Value>
@@ -101,7 +101,7 @@
     </DataSet>
     <DataSet Name="ServiceLocations">
       <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
+        <DataSourceName>inetDNN_OFC</DataSourceName>
         <CommandText>SELECT        '0' AS Value, 'All Visits' AS Text
 UNION ALL
 SELECT        'Pantry' AS Value, 'Regular Visit' AS Text

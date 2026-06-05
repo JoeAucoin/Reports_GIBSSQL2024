@@ -55,7 +55,9 @@
     <Report Include="ClientTrueFalseQuestionsDetail.rdl" />
     <Report Include="ClientVisits.rdl" />
     <Report Include="Dashboard_Summary.rdl" />
+    <Report Include="Holiday.rdl" />
     <Report Include="NewClientsReport.rdl" />
+    <Report Include="NewClientsReportDetail.rdl" />
     <Report Include="ReportHeader.rdl" />
     <Report Include="Report_Client_Visit_USDA.rdl" />
     <Report Include="VisitFrequencyGrouped.rdl" />

@@ -21,6 +21,8 @@ Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "PetersonRealty", "PetersonR
 EndProject
 Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "YFP", "YFP\YFP.rptproj", "{FD01D06C-10EE-4ED5-A0F4-EE476F58E5D0}"
 EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "OFC", "OFC\OFC.rptproj", "{52E23360-4E04-BA62-BC33-A7794076CFC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Default = Debug|Default
@@ -108,6 +110,14 @@ Global
 		{FD01D06C-10EE-4ED5-A0F4-EE476F58E5D0}.Release|Default.ActiveCfg = Release
 		{FD01D06C-10EE-4ED5-A0F4-EE476F58E5D0}.Release|Default.Build.0 = Release
 		{FD01D06C-10EE-4ED5-A0F4-EE476F58E5D0}.Release|Default.Deploy.0 = Release
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Debug|Default.ActiveCfg = Debug
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Debug|Default.Build.0 = Debug
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Debug|Default.Deploy.0 = Debug
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.DebugLocal|Default.Build.0 = DebugLocal
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Release|Default.ActiveCfg = Release
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Release|Default.Build.0 = Release
+		{52E23360-4E04-BA62-BC33-A7794076CFC5}.Release|Default.Deploy.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

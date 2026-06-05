@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.10.35013.160</am:Version>
+      <am:Version>17.14.36908.2</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-06-26T15:37:35.6631004Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-03-09T18:58:38.1892061Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -618,10 +618,10 @@ SELECT
       </Body>
       <Width>7.4375in</Width>
       <Page>
-        <LeftMargin>1in</LeftMargin>
-        <RightMargin>1in</RightMargin>
-        <TopMargin>1in</TopMargin>
-        <BottomMargin>1in</BottomMargin>
+        <LeftMargin>0.5in</LeftMargin>
+        <RightMargin>0.5in</RightMargin>
+        <TopMargin>0.5in</TopMargin>
+        <BottomMargin>0.5in</BottomMargin>
         <Style />
       </Page>
     </ReportSection>

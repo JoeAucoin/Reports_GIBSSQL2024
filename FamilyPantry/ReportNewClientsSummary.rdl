@@ -3,13 +3,13 @@
   <am:AuthoringMetadata>
     <am:CreatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.10.35013.160</am:Version>
+      <am:Version>17.12.35514.174</am:Version>
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.12.35514.174</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2024-12-07T12:58:37.4835308Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2024-12-09T14:27:59.4683398Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -20,10 +20,32 @@
         <ConnectString>Data Source=gibs.database.windows.net;Initial Catalog=inetDNN_FamilyPantry</ConnectString>
       </ConnectionProperties>
       <rd:SecurityType>DataBase</rd:SecurityType>
-      <rd:DataSourceID>2a791f2a-79b3-4650-a6a3-97bf3f62dbfa</rd:DataSourceID>
+      <rd:DataSourceID>b05e3862-fa9f-4aa8-9b69-1626b59013fd</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="ServiceLocations">
+      <Query>
+        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
+        <CommandText>SELECT        '0' AS Value, 'All Visits' AS Text
+UNION ALL
+SELECT        'Pantry' AS Value, 'Regular Visit' AS Text
+UNION ALL
+SELECT        Value, Text
+FROM            Lists
+WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Value">
+          <DataField>Value</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Text">
+          <DataField>Text</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
     <DataSet Name="DataSet1">
       <Query>
         <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
@@ -42,16 +64,16 @@
           </QueryParameter>
         </QueryParameters>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>GIBS_FBReports_Client_Visit_Details_SSRS</CommandText>
+        <CommandText>GIBS_FBReports_New_Clients_Report_SSRS</CommandText>
       </Query>
       <Fields>
-        <Field Name="Clients">
-          <DataField>Clients</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ClientCity">
           <DataField>ClientCity</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Clients">
+          <DataField>Clients</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ClientAdult">
           <DataField>ClientAdult</DataField>
@@ -61,16 +83,8 @@
           <DataField>Client65Plus</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Visits">
-          <DataField>Visits</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="ClientChild">
           <DataField>ClientChild</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Bags">
-          <DataField>Bags</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="ClientNoDOB">
@@ -99,33 +113,57 @@
         </Field>
       </Fields>
     </DataSet>
-    <DataSet Name="ServiceLocations">
-      <Query>
-        <DataSourceName>inetDNN_FamilyPantry</DataSourceName>
-        <CommandText>SELECT        '0' AS Value, 'All Visits' AS Text
-UNION ALL
-SELECT        'Pantry' AS Value, 'Regular Visit' AS Text
-UNION ALL
-SELECT        Value, Text
-FROM            Lists
-WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Value">
-          <DataField>Value</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Text">
-          <DataField>Text</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-    </DataSet>
   </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
         <ReportItems>
+          <Subreport Name="Subreport1">
+            <ReportName>ReportHeader</ReportName>
+            <Left>2.51458in</Left>
+            <Height>0.89167in</Height>
+            <Width>5.11666in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+          <Textbox Name="Textbox6">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>="New Clients Summary Report: " &amp;  Parameters!ServiceLocation.Label &amp; " - "  &amp;  FORMAT(Parameters!StartDate.Value, "MM/dd/yyyy") &amp; " to " &amp; FORMAT(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
+                    <Style>
+                      <FontSize>14pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox6</rd:DefaultName>
+            <Top>0.98073in</Top>
+            <Left>1.22292in</Left>
+            <Height>0.28125in</Height>
+            <Width>7.85625in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
           <Tablix Name="Tablix1">
             <TablixBody>
               <TablixColumns>
@@ -161,9 +199,6 @@ WHERE        (ListName = 'ClientServiceLocation')  </CommandText>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.64583in</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>0.82292in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -557,41 +592,6 @@ Total</Value>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Textbox23">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>Bags</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox23</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
@@ -952,40 +952,6 @@ Total</Value>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>HouseholdTotal</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Bags">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Fields!Bags.Value</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Bags</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -1389,48 +1355,12 @@ Total</Value>
                         </Textbox>
                       </CellContents>
                     </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="Bags1">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=Sum(Fields!Bags.Value)</Value>
-                                  <Style>
-                                    <FontFamily>Arial</FontFamily>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Bags1</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
                   </TablixCells>
                 </TablixRow>
               </TablixRows>
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -1458,72 +1388,25 @@ Total</Value>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet1</DataSetName>
-            <Top>1.36333in</Top>
-            <Left>0.25917in</Left>
+            <Top>1.51562in</Top>
+            <Left>0.72803in</Left>
             <Height>0.75in</Height>
-            <Width>9.53353in</Width>
+            <Width>8.71061in</Width>
+            <ZIndex>2</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
             </Style>
           </Tablix>
-          <Subreport Name="Subreport1">
-            <ReportName>ReportHeader</ReportName>
-            <Top>0.04833in</Top>
-            <Left>2.38375in</Left>
-            <Height>0.89167in</Height>
-            <Width>5.11666in</Width>
-            <ZIndex>1</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-            </Style>
-          </Subreport>
-          <Textbox Name="Textbox6">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>="Client Visit Report: " &amp;  Parameters!ServiceLocation.Label &amp; " - "  &amp;  FORMAT(Parameters!StartDate.Value, "MM/dd/yyyy") &amp; " to " &amp; FORMAT(Parameters!EndDate.Value, "MM/dd/yyyy")</Value>
-                    <Style>
-                      <FontSize>14pt</FontSize>
-                      <FontWeight>Bold</FontWeight>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style>
-                  <TextAlign>Center</TextAlign>
-                </Style>
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>1.04104in</Top>
-            <Left>1.88375in</Left>
-            <Height>0.28125in</Height>
-            <Width>6.22083in</Width>
-            <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
         </ReportItems>
-        <Height>2.11333in</Height>
+        <Height>2.26562in</Height>
         <Style />
       </Body>
-      <Width>9.98833in</Width>
+      <Width>10.11458in</Width>
       <Page>
         <PageFooter>
-          <Height>0.625in</Height>
+          <Height>0.4375in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1534,7 +1417,7 @@ Total</Value>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="(ClientVisitSummary) Report Generated " &amp; Globals!ExecutionTime</Value>
+                      <Value>="(ReportNewClientsSummary) Report Generated " &amp; Globals!ExecutionTime</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -1546,8 +1429,8 @@ Total</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.375in</Top>
-              <Left>2.43167in</Left>
+              <Top>0.1875in</Top>
+              <Left>2.49479in</Left>
               <Height>0.25in</Height>
               <Width>5.125in</Width>
               <Style>
@@ -1582,10 +1465,10 @@ Total</Value>
       <DataType>DateTime</DataType>
       <DefaultValue>
         <Values>
-          <Value>=DateAdd("d",-7,Today())</Value>
+          <Value>=DateAdd("m",-1,Today())</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Start Date</Prompt>
+      <Prompt>StartDate</Prompt>
     </ReportParameter>
     <ReportParameter Name="EndDate">
       <DataType>DateTime</DataType>
@@ -1594,7 +1477,7 @@ Total</Value>
           <Value>=Today()</Value>
         </Values>
       </DefaultValue>
-      <Prompt>End Date</Prompt>
+      <Prompt>EndDate</Prompt>
     </ReportParameter>
     <ReportParameter Name="PortalID">
       <DataType>Integer</DataType>
@@ -1603,17 +1486,17 @@ Total</Value>
           <Value>0</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Portal ID</Prompt>
+      <Prompt>PortalID</Prompt>
       <Hidden>true</Hidden>
     </ReportParameter>
     <ReportParameter Name="ServiceLocation">
       <DataType>String</DataType>
       <DefaultValue>
         <Values>
-          <Value>0</Value>
+          <Value>Pantry</Value>
         </Values>
       </DefaultValue>
-      <Prompt>Service Location</Prompt>
+      <Prompt>ServiceLocation</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>ServiceLocations</DataSetName>
@@ -1652,5 +1535,5 @@ Total</Value>
     </GridLayoutDefinition>
   </ReportParametersLayout>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>9ed766ed-abb2-4de2-b4e1-4c4a842192e8</rd:ReportID>
+  <rd:ReportID>3d05d2b3-2375-4b26-b5cc-ad808000e477</rd:ReportID>
 </Report>

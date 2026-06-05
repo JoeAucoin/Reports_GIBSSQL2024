@@ -8,7 +8,7 @@
     <OverwriteDataSources>False</OverwriteDataSources>
     <TargetServerVersion>SSRS2016</TargetServerVersion>
     <Platform>Win32</Platform>
-    <TargetReportFolder>YFP</TargetReportFolder>
+    <TargetReportFolder>OFC</TargetReportFolder>
     <TargetDatasetFolder>Datasets</TargetDatasetFolder>
     <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
     <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
@@ -22,7 +22,7 @@
     <OverwriteDataSources>False</OverwriteDataSources>
     <TargetServerVersion>SSRS2016</TargetServerVersion>
     <Platform>Win32</Platform>
-    <TargetReportFolder>YFP</TargetReportFolder>
+    <TargetReportFolder>OFC</TargetReportFolder>
     <TargetDatasetFolder>Datasets</TargetDatasetFolder>
     <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
     <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
@@ -36,7 +36,7 @@
     <OverwriteDataSources>False</OverwriteDataSources>
     <TargetServerVersion>SSRS2016</TargetServerVersion>
     <Platform>Win32</Platform>
-    <TargetReportFolder>YFP</TargetReportFolder>
+    <TargetReportFolder>OFC</TargetReportFolder>
     <TargetDatasetFolder>Datasets</TargetDatasetFolder>
     <TargetDatasourceFolder>Data Sources</TargetDatasourceFolder>
     <TargetReportPartFolder>Report Parts</TargetReportPartFolder>
@@ -49,14 +49,14 @@
     <Reports>@(Report)</Reports>
   </PropertyGroup>
   <ItemGroup>
-    <Report Include="ChristmasToyReport.rdl" />
-    <Report Include="ChristmasToys.rdl" />
-    <Report Include="FoodInventory.rdl" />
-    <Report Include="FoodReport.rdl" />
-    <Report Include="FoodReportingType.rdl" />
-    <Report Include="FoodReportProductCategory.rdl" />
-    <Report Include="FoodReportSupplier.rdl" />
+    <Report Include="ClientList.rdl" />
+    <Report Include="ClientTrueFalseQuestionsDetail.rdl" />
+    <Report Include="ClientVisitSummary.rdl" />
+    <Report Include="ReportClientVisitDetails.rdl" />
+    <Report Include="ReportDistinctClients.rdl" />
     <Report Include="ReportHeader.rdl" />
+    <Report Include="Report_Client_Visit_USDA.rdl" />
+    <Report Include="ZipCodeClientVisitSummary.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
 </Project>
