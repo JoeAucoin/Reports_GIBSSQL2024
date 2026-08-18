@@ -56,6 +56,7 @@
     <Report Include="ReportDistinctClients.rdl" />
     <Report Include="ReportHeader.rdl" />
     <Report Include="Report_Client_Visit_USDA.rdl" />
+    <Report Include="ZipCodeClientVisitNewYear.rdl" />
     <Report Include="ZipCodeClientVisitSummary.rdl" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Reporting Services\Microsoft.ReportingServices.MSBuilder.targets" />
