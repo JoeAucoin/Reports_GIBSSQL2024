@@ -9,7 +9,7 @@
       <am:Name>SSDTRS</am:Name>
       <am:Version>17.14.37502.11</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2026-08-19T19:39:43.3756902Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-09-09T12:50:18.0623200Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -653,9 +653,9 @@ SELECT  [LocationID] AS Value
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=IIF(Fields!DESE.Value = True, Chr(254), Chr(111))</Value>
+                                  <Value>=IIF(Fields!DESE.Value = True, "Yes", "No")</Value>
                                   <Style>
-                                    <FontFamily>Wingdings</FontFamily>
+                                    <FontFamily>Arial</FontFamily>
                                   </Style>
                                 </TextRun>
                               </TextRuns>

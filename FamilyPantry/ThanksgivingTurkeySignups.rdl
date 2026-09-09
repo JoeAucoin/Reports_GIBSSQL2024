@@ -7,9 +7,9 @@
     </am:CreatedBy>
     <am:UpdatedBy>
       <am:Name>SSDTRS</am:Name>
-      <am:Version>17.14.36518.9</am:Version>
+      <am:Version>17.14.37502.11</am:Version>
     </am:UpdatedBy>
-    <am:LastModifiedTimestamp>2025-10-14T18:58:53.9489985Z</am:LastModifiedTimestamp>
+    <am:LastModifiedTimestamp>2026-08-25T20:55:41.3688541Z</am:LastModifiedTimestamp>
   </am:AuthoringMetadata>
   <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
   <AutoRefresh>0</AutoRefresh>
@@ -44,7 +44,7 @@ GIBS_FBClients.ClientLastName AS LastName, GIBS_FBClients.ClientFirstName AS Fir
 -- GIBS_FBClientsTrueFalseQuestions.TfAnswer as Turkey
 FROM         GIBS_FBClientsTrueFalseQuestions INNER JOIN
                       GIBS_FBClients ON GIBS_FBClientsTrueFalseQuestions.ClientID = GIBS_FBClients.ClientID
-WHERE     (GIBS_FBClientsTrueFalseQuestions.TfQuestion = N'Thanksgiving Turkey') AND (GIBS_FBClientsTrueFalseQuestions.TfAnswer = 1) 
+WHERE     (GIBS_FBClientsTrueFalseQuestions.TfQuestion = N'Thanks - Turkey') AND (GIBS_FBClientsTrueFalseQuestions.TfAnswer = 1) 
 order by GIBS_FBClients.ClientCity, GIBS_FBClients.ClientTown, GIBS_FBClients.ClientLastName </CommandText>
       </Query>
       <Fields>
